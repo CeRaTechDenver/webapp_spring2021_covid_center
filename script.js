@@ -96,6 +96,10 @@ function validateForm() {
 
 
     for (let i = 0; i < elements.length; i++) {
+
+        elements[i].classList.remove("hasError");
+        elements[i].classList.remove("errorMessage");
+
         for (let j = 0; j < invalidChars.length; j++) {
             if (elements[i].value.indexOf(invalidChars[j]) != -1) {
                 console.log("NOT VALID");
@@ -113,10 +117,6 @@ function validateForm() {
             
         }
 
-        if (containsElement==false){
-            elements[i].classList.remove("hasError");
-            elements[i].classList.remove("errorMessage");
-    }
 }
 
 
