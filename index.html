@@ -3,16 +3,20 @@
 
 <head>
     <title> Covid Center Website</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
     <header>
 
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-            integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-            crossorigin="anonymous"></script>
         <br>
         <div class="container-fluid">
             <h1 class="text-center">Welcome to Covid Assessment Website.</h1>
@@ -27,7 +31,7 @@
         <br>
 
         <article>
-            <form>
+            <form onsubmit="return validateForm()" id="mainForm" novalidate>
                 <fieldset class="border-top">
 
                     <legend class="w-auto text-center">Part 1: Patient Information</legend>
@@ -121,6 +125,10 @@
 
                         <div class="col-lg-3 col-md-3 col-sm-8 col-8">
                             <input type="date" id="txtDOB" name="txtDOB" required class="form-control">
+                        </div>
+
+                        <div id="divDobError" class="invisibleClass errorMessage hasError col-lg-12 col-md-12 col-sm-12 col-12 text-center">
+
                         </div>
 
                     </div>
@@ -362,21 +370,26 @@
                             </div>
 
                             <div class="col-lg-3 col-md-3 col-sm-6 col-12">
-                                <select id="ddCountry" name="ddCountry" class="form-control">
+                                <select id="ddCountry" name="ddCountry" class="form-control" onchange="updateCountryView()">
                                     <option value="No" selected>No</option>
                                     <option value="Yes">Yes</option>
                                 </select>
                             </div>
-
-                            <div class="col-lg-3 col-md-3 col-sm-6 col-12">
+                            
+                            <div id="divCountry1" class="col-lg-3 col-md-3 col-sm-6 col-12 invisibleClass">
                                 <label for="txtCountry" class="col-form-label">
                                     <span>Which Countries? (Seperate with comma)</span>
                                 </label>
                             </div>
 
-                            <div class="col-lg-3 col-md-3 col-sm-6 col-12">
+                            <div id="divCountry2" class="col-lg-3 col-md-3 col-sm-6 col-12 invisibleClass">
                                 <input type="text" id="txtCountry" required class="form-control" placeholder="Country">
                             </div>
+
+                            <div id="divCountryError" class="invisibleClass errorMessage hasError col-lg-12 col-md-12 col-sm-12 col-12 text-center">
+
+                            </div>
+
                         </div>
 
                     </div>
@@ -426,6 +439,12 @@
             copyright @2021 Covid Center Website
         </div>
     </footer>
+
+
+
+
+    <script src="script.js"></script>
+
 </body>
 
 </html>

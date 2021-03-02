@@ -1,0 +1,13 @@
+.invisibleClass {
+    visibility: hidden;
+}
+
+.errorMessage {
+    color: red;
+}
+
+.hasError {
+    background-color: yellow;
+}
+
+
