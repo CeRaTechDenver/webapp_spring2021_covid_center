@@ -106,10 +106,18 @@ function validateForm() {
                 if (containsElement==true){
                 formIsValid3 = false;
             }
+
+
             }  
+
             
         }
+
+        if (containsElement==false){
+            elements[i].classList.remove("hasError");
+            elements[i].classList.remove("errorMessage");
     }
+}
 
 
 
